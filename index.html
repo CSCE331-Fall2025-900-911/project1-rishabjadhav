@@ -3,7 +3,7 @@
 <head>
 <title>Rishab Jadhav</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="styles/index.css">
+<link id="mainStyleSheet" rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
@@ -27,12 +27,30 @@
       <a href="https://github.com/rishabjadhav/" target="_blank" title="GitHub">
         <img src="assets/github-icon.png" alt="GitHub">
       </a>
-      <a href="mailto:rishabjadhav@gmail.com" target="_blank" title="Email">
-        <img src="assets/email-icon.png" alt="Email">
+      <a href="https://www.kaggle.com/rishabjadhav" target="_blank" title="Kaggle">
+        <img src="assets/kaggle-icon.png" alt="Kaggle">
       </a>
       <a href="https://open.spotify.com/user/rishabjadhav/" target="_blank" title="Spotify">
         <img src="assets/spotify-icon.png" alt="Spotify">
       </a>
+      <button class="toggle-style-btn" onclick="toggleStyleSheet()" title="Toggle Style">
+        <span id="toggle-icon">
+          <!-- Sun icon SVG -->
+          <svg id="icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;">
+            <circle cx="12" cy="12" r="5" fill="#ffe066"/>
+            <g stroke="#ffe066" stroke-width="2">
+              <line x1="12" y1="2" x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="2" y1="12" x2="5" y2="12"/>
+              <line x1="19" y1="12" x2="22" y2="12"/>
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+            </g>
+          </svg>
+        </span>
+      </button>
     </div>
 
   <div class="main-content">
@@ -63,5 +81,35 @@
   </div>
 
 
+<script>
+function toggleStyleSheet(){
+    var element = document.getElementById("mainStyleSheet");
+    var current = element.getAttribute("href");
+    var newSheet = (current === "styles/styles.css") ? "styles/alt.css" : "styles/styles.css";
+    element.setAttribute("href", newSheet);
+    localStorage.setItem("stylesheet", newSheet);
+    // Change icon
+    var iconSpan = document.getElementById("toggle-icon");
+    if (newSheet === "styles/alt.css") {
+      iconSpan.innerHTML = `<svg id='icon-moon' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><path d='M21 12.79A9 9 0 0 1 12.21 3a7 7 0 1 0 8.79 9.79z' fill='#07f0ff'/></svg>`;
+    } else {
+      iconSpan.innerHTML = `<svg id='icon-sun' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><circle cx='12' cy='12' r='5' fill='#ffe066'/><g stroke='#ffe066' stroke-width='2'><line x1='12' y1='2' x2='12' y2='5'/><line x1='12' y1='19' x2='12' y2='22'/><line x1='2' y1='12' x2='5' y2='12'/><line x1='19' y1='12' x2='22' y2='12'/><line x1='4.22' y1='4.22' x2='6.34' y2='6.34'/><line x1='17.66' y1='17.66' x2='19.78' y2='19.78'/><line x1='4.22' y1='19.78' x2='6.34' y2='17.66'/><line x1='17.66' y1='6.34' x2='19.78' y2='4.22'/></g></svg>`;
+    }
+}
+window.onload = function(){
+    var persistStyle = localStorage.getItem("stylesheet");
+    if (persistStyle) {
+        var el2 = document.getElementById("mainStyleSheet");
+        el2.setAttribute("href", persistStyle);
+        // Set icon on load
+        var iconSpan = document.getElementById("toggle-icon");
+        if (persistStyle === "styles/alt.css") {
+          iconSpan.innerHTML = `<svg id='icon-moon' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><path d='M21 12.79A9 9 0 0 1 12.21 3a7 7 0 1 0 8.79 9.79z' fill='#07f0ff'/></svg>`;
+        } else {
+          iconSpan.innerHTML = `<svg id='icon-sun' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><circle cx='12' cy='12' r='5' fill='#ffe066'/><g stroke='#ffe066' stroke-width='2'><line x1='12' y1='2' x2='12' y2='5'/><line x1='12' y1='19' x2='12' y2='22'/><line x1='2' y1='12' x2='5' y2='12'/><line x1='19' y1='12' x2='22' y2='12'/><line x1='4.22' y1='4.22' x2='6.34' y2='6.34'/><line x1='17.66' y1='17.66' x2='19.78' y2='19.78'/><line x1='4.22' y1='19.78' x2='6.34' y2='17.66'/><line x1='17.66' y1='6.34' x2='19.78' y2='4.22'/></g></svg>`;
+        }
+    }
+}
+</script>
 </body>
 </html>

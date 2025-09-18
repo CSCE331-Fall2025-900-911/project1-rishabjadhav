@@ -3,7 +3,8 @@
 <head>
 <title>Rishab Jadhav</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="../styles/portfolio.css">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <script src="../scripts/script.js"></script>
 </head>
 
 <body>
@@ -20,49 +21,65 @@
     </ul>
   </div>
 
-  <div class="main-content portfolio-content">
-    <h1>Service Projects</h1>
-    <div class="timeline">
-      <div class="timeline-accent"></div>
-      <!-- Example Project 1 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <img src="../assets/construction.jpeg" alt="Project Thumbnail" class="timeline-thumb">
-          <div class="timeline-details">
-            <h2 class="timeline-title">Street Sweep <span class="timeline-tag">Web</span></h2>
-            <p>A modern, responsive personal website built with HTML, CSS, and JavaScript. Features a portfolio, about me, and more.</p>
-            <a href="https://github.com/TAMU-CSCE331-Fall2025/project1-rishabjadhav" target="_blank">View on TAMU GitHub</a>
-          </div>
-        </div>
-      </div>
+      <div class="social-bar">
+      <a href="https://linkedin.com/in/rishabjadhav/" target="_blank" title="LinkedIn">
+        <img src="../assets/linkedin-icon.png" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/rishabjadhav/" target="_blank" title="GitHub">
+        <img src="../assets/github-icon.png" alt="GitHub">
+      </a>
+      <a href="https://www.kaggle.com/rishabjadhav" target="_blank" title="Kaggle">
+        <img src="../assets/kaggle-icon.png" alt="Kaggle">
+      </a>
+      <a href="https://open.spotify.com/user/rishabjadhav/" target="_blank" title="Spotify">
+        <img src="../assets/spotify-icon.png" alt="Spotify">
+      </a>
+      <button class="toggle-style-btn" onclick="toggleStyleSheet()" title="Toggle Style">
+        <span id="toggle-icon">
+          <!-- Sun icon SVG -->
+          <svg id="icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;">
+            <circle cx="12" cy="12" r="5" fill="#ffe066"/>
+            <g stroke="#ffe066" stroke-width="2">
+              <line x1="12" y1="2" x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="2" y1="12" x2="5" y2="12"/>
+              <line x1="19" y1="12" x2="22" y2="12"/>
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </div>
 
-      <!-- Example Project 2 (branch) -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <img src="../assets/construction.jpeg" alt="Project Thumbnail" class="timeline-thumb">
-          <div class="timeline-details">
-            <h2 class="timeline-title">Generative AI Playground <span class="timeline-tag">AI</span></h2>
-            <p>Experimenting with generative models and AI tools. Includes interactive demos and visualizations.</p>
-            <a href="https://github.com/TAMU-CSCE331-Fall2025/genai-playground" target="_blank">View on TAMU GitHub</a>
-          </div>
-        </div>
-      </div>
 
-      <!-- Example Project 3 (main branch) -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <img src="../assets/construction.jpeg" alt="Project Thumbnail" class="timeline-thumb">
-          <div class="timeline-details">
-            <h2 class="timeline-title">Service Tracker <span class="timeline-tag">App</span></h2>
-            <p>A web app for tracking volunteer service hours, built with React and Firebase.</p>
-            <a href="https://github.com/TAMU-CSCE331-Fall2025/service-tracker" target="_blank">View on TAMU GitHub</a>
-          </div>
+  <div class="main-content service-content">
+    <h1>Community Service Achievements</h1>
+    <div class="service-sections">
+      <section class="service-section">
+        <div class="service-image">
+          <img src="../assets/service1.jpeg" alt="Street Sweep Project" />
         </div>
-      </div>
-      <!-- Add more projects as needed -->
+        <div class="service-text">
+          <h2>Street Sweep Initiative</h2>
+          <p>
+            Led a local effort to organize monthly street cleanups, engaging over 50 volunteers and removing hundreds of pounds of litter from public spaces. This project fostered community pride and environmental stewardship.
+          </p>
+        </div>
+      </section>
+      <section class="service-section">
+        <div class="service-image">
+          <img src="../assets/service2.jpeg" alt="Food Drive Project" />
+        </div>
+        <div class="service-text">
+          <h2>Annual Food Drive</h2>
+          <p>
+            Coordinated an annual food drive in partnership with local organizations, collecting and distributing over 2,000 meals to families in need. This initiative strengthened community bonds and provided essential support to vulnerable populations.
+          </p>
+        </div>
+      </section>
     </div>
   </div>
 </div>
