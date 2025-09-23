@@ -54,29 +54,19 @@
     </div>
 
   <div class="main-content">
-    <div class="about-grid">
-      <div class="about-image">
-        <img src="assets/construction.jpeg" alt="Rishab Jadhav" class="profile-pic">
-        <p class="about-bio">I'm a Computer Science major at Texas A&M University, class of 2027. I love cooking, napping, and surviving Aggie football season. Welcome to my personal site!</p>
-      </div>
-      <div class="about-text">
-        <h1>Hi I'm Rishab!</h1>
-        <h2>About Me</h2>
-        <code>
-          <span class="css-selector">#rishab</span> {<br>
-          &nbsp;&nbsp;<span class="css-property">major</span>: <span class="css-value">CS</span><span class="css-semicolon">;</span><br>
-          &nbsp;&nbsp;<span class="css-property">grad-date</span>: <span class="css-value">2027</span><span class="css-semicolon">;</span><br>
-          }<br><br>
-          <span class="css-selector">.lifestyle</span> {<br>
-          &nbsp;&nbsp;<span class="css-property">cooking</span>: <span class="css-value">100%</span><span class="css-semicolon">;</span><br>
-          &nbsp;&nbsp;<span class="css-property">napping</span>: <span class="css-value">24/7</span><span class="css-semicolon">;</span><br>
-          }<br><br>
-          <span class="css-selector">.aggie-football</span> {<br>
-          &nbsp;&nbsp;<span class="css-property">hope</span>: <span class="css-value">high</span><span class="css-semicolon">;</span><br>
-          &nbsp;&nbsp;<span class="css-property">disappointing</span>: <span class="css-value">true</span><span class="css-semicolon">;</span><br>
-          }
-        </code>
-      </div>
+    <div class="intro-section">
+        <div class="intro-text">
+            <h1>Rishab Jadhav</h1>
+            <p class="subtitle">Computer Science Student | Aspiring Software Engineer</p>
+            <p class="intro-bio">
+              Hi! I'm Rishab, currently pursuing a Bachelor's in Computer Science at Texas A&M University, part of the class of 
+              '27 (A-A-WHOOP). I'm passionate about new technology and learning new things that pique my interest. I love to build and 
+              explore what I'm passionate about. Outside of that, I love to <a href = "https://www.youtube.com/playlist?list=PLl8SfuCPa9nF5J48ulrWaY0OAOq3ZONdP" >watch sports</a>, play pick-up soccer, and listen to music.
+            </p>
+        </div>
+        <div class="intro-image">
+            <img src="assets/me.jpeg" alt="Rishab Jadhav" class="profile-pic">
+        </div>
     </div>
   </div>
 
@@ -88,7 +78,7 @@ function toggleStyleSheet(){
     var newSheet = (current === "styles/styles.css") ? "styles/alt.css" : "styles/styles.css";
     element.setAttribute("href", newSheet);
     localStorage.setItem("stylesheet", newSheet);
-    // Change icon
+    // change icon
     var iconSpan = document.getElementById("toggle-icon");
     if (newSheet === "styles/alt.css") {
       iconSpan.innerHTML = `<svg id='icon-moon' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><path d='M21 12.79A9 9 0 0 1 12.21 3a7 7 0 1 0 8.79 9.79z' fill='#07f0ff'/></svg>`;
@@ -96,14 +86,26 @@ function toggleStyleSheet(){
       iconSpan.innerHTML = `<svg id='icon-sun' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><circle cx='12' cy='12' r='5' fill='#ffe066'/><g stroke='#ffe066' stroke-width='2'><line x1='12' y1='2' x2='12' y2='5'/><line x1='12' y1='19' x2='12' y2='22'/><line x1='2' y1='12' x2='5' y2='12'/><line x1='19' y1='12' x2='22' y2='12'/><line x1='4.22' y1='4.22' x2='6.34' y2='6.34'/><line x1='17.66' y1='17.66' x2='19.78' y2='19.78'/><line x1='4.22' y1='19.78' x2='6.34' y2='17.66'/><line x1='17.66' y1='6.34' x2='19.78' y2='4.22'/></g></svg>`;
     }
 }
+
 window.onload = function(){
     var persistStyle = localStorage.getItem("stylesheet");
+    var el2 = document.getElementById("mainStyleSheet");
+    var iconSpan = document.getElementById("toggle-icon");
+    
+    var stylesheetToUse;
+    
     if (persistStyle) {
-        var el2 = document.getElementById("mainStyleSheet");
-        el2.setAttribute("href", persistStyle);
-        // Set icon on load
-        var iconSpan = document.getElementById("toggle-icon");
-        if (persistStyle === "styles/alt.css") {
+        // Use the stored preference
+        stylesheetToUse = persistStyle;
+    } else {
+        stylesheetToUse = "styles/styles.css";
+        localStorage.setItem("stylesheet", stylesheetToUse);
+    }
+    
+    el2.setAttribute("href", stylesheetToUse);
+    
+    if (iconSpan) {
+        if (stylesheetToUse === "styles/alt.css") {
           iconSpan.innerHTML = `<svg id='icon-moon' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><path d='M21 12.79A9 9 0 0 1 12.21 3a7 7 0 1 0 8.79 9.79z' fill='#07f0ff'/></svg>`;
         } else {
           iconSpan.innerHTML = `<svg id='icon-sun' width='24' height='24' viewBox='0 0 24 24' fill='none' style='vertical-align:middle;'><circle cx='12' cy='12' r='5' fill='#ffe066'/><g stroke='#ffe066' stroke-width='2'><line x1='12' y1='2' x2='12' y2='5'/><line x1='12' y1='19' x2='12' y2='22'/><line x1='2' y1='12' x2='5' y2='12'/><line x1='19' y1='12' x2='22' y2='12'/><line x1='4.22' y1='4.22' x2='6.34' y2='6.34'/><line x1='17.66' y1='17.66' x2='19.78' y2='19.78'/><line x1='4.22' y1='19.78' x2='6.34' y2='17.66'/><line x1='17.66' y1='6.34' x2='19.78' y2='4.22'/></g></svg>`;
